@@ -1,0 +1,33 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+alias f29='sudo podman run -it --rm --name f29 fedora:29 /bin/bash'
+alias inst='sudo rpm-ostree install'
+alias reboot='sudo systemctl reboot'
+alias off='sudo systemctl poweroff'
+alias auto='sudo powertop --auto-tune'
+alias pinfo='sudo cpupower frequency-info'
+alias l='ls --color=auto -CFtr'
+alias la='ls --color=auto -A'
+alias ll='ls --color=auto -Altr'
+alias nr='sudo systemctl restart NetworkManager.service'
+alias ondemand='sudo cpupower frequency-set -g ondemand'
+alias performance='sudo cpupower frequency-set -g performance'
+alias powersave='sudo cpupower frequency-set -g powersave'
+alias schedutil='sudo cpupower frequency-set -g schedutil'
+alias upd='sudo rpm-ostree upgrade'
+alias wifi='nmcli dev wifi list'
+alias up='sudo docker-compose up -d --build'
+alias down='sudo docker-compose down'
+alias stop='sudo docker-compose stop'
+export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/vim
+ulimit -s 32768
