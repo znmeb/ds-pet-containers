@@ -1,0 +1,5 @@
+#! /bin/bash
+
+xdg-open http://localhost:9090 # Cockpit
+xdg-open http://localhost:8787 # RStudio Server
+xdg-open http://localhost:8686 # pgAdmin4

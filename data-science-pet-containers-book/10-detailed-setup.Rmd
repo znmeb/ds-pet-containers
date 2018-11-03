@@ -1,0 +1,22 @@
+# Detailed Setup
+1. Clone this repository and `cd data-science-pet-containers/containers`.
+2. Define the environment variables:
+    * Copy the file `sample.env` to `.env`. For security reasons, `.env` is listed in `.gitignore`, so it ***won't*** be checked into version control. 
+    * Edit `.env`. The variables you need to define are
+        * `POSTGRES_PASSWORD`: To connect to the `postgis` service, you need a user name and a password. The user name is the default, the database superuser `postgres`. Docker will set the password for the `postgres` user in the `postgis` service to the value of `POSTGRES_PASSWORD`.
+        * `PASSWORD`: The RStudio Server in the `rstats` image will not come up unless you define a password for the `rstudio` user. This environment variable defines that password.
+        * `PGADMIN_EMAIL` and `PGADMIN_PASSWORD`: The `pgadmin4` service requires an email address and password to log in. These are the initial values for the administrator.
+
+Here's `sample.env`:
+
+```
+# PostGIS image
+POSTGRES_PASSWORD=sit-down-c0mic
+
+# RStats image - RStudio password is just called "PASSWORD"
+PASSWORD=the.cake.is.a.lie
+
+# pgAdmin4 image
+PGADMIN_DEFAULT_EMAIL=znmeb@znmeb.net
+PGADMIN_DEFAULT_PASSWORD=yet_another_feeble_attempt
+```

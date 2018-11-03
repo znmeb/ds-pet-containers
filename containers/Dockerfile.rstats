@@ -1,0 +1,55 @@
+FROM rocker/rstudio:latest
+LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
+
+# need this for keys
+RUN apt-get update && apt-get install -qqy --no-install-recommends gnupg
+
+# Official PostgreSQL repository
+RUN mkdir -p /etc/apt/sources.list.d/
+COPY pgdg.list.stretch /etc/apt/sources.list.d/pgdg.list
+COPY pgdg.pref /apt/preferences.d/pgdg.pref
+
+# Backports
+COPY backports.list.stretch /etc/apt/sources.list.d/backports.list
+
+# Apt packages
+RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+  && apt-get update \
+  && apt-get upgrade -qqy \
+  && apt-get install -qqy --no-install-recommends \
+    curl \
+    gdebi-core \
+    git-lfs \
+    libpq-dev \
+    libssh2-1-dev \
+    libxml2-dev \
+    openssh-client \
+    pgdg-keyring \
+    postgresql-client-11 \
+    qpdf \
+    zlib1g-dev \
+  && apt-get clean
+
+# R packages
+RUN R -e "install.packages(c('RPostgres', 'tinytex'), quiet = TRUE)"
+
+# copy the root-level options to /usr/local/src
+COPY rstats-root-scripts  /usr/local/src/
+RUN chmod +x  /usr/local/src/*.bash \
+  && echo "alias l='ls -ACF --color=auto'" >> /etc/bash.bashrc \
+  && echo "alias ll='ls -ltrAF --color=auto'" >> /etc/bash.bashrc
+
+# upgrade RStudio Server to the preview release
+RUN /usr/local/src/rstudio-server-preview.bash
+
+# rstudio home
+COPY home-scripts /home/rstudio/scripts/
+RUN chmod +x /home/rstudio/scripts/*.bash \
+  && mkdir -p /home/rstudio/Projects/ \
+  && chown -R rstudio:rstudio /home/rstudio
+
+# allow "sudo" and local library writes from the "rstudio" account
+RUN usermod -G sudo,staff rstudio
+
+# Install the TinyTeX hook
+RUN su - rstudio -c "R -e 'tinytex::install_tinytex()'"
