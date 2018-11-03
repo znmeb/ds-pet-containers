@@ -2,6 +2,7 @@
 
 rpm-ostree install --allow-inactive \
   chrome-gnome-shell \
+  cockpit \
   cockpit-dashboard \
   cockpit-doc \
   cockpit-docker \
