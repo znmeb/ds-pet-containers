@@ -21,7 +21,7 @@ As the name implies, the software is distributed via Docker. The user simply clo
 
 ## Why do it this way? 
 
-* Provide a standardized common working environment for data scientistsand DevOps engineers. We want to build using the same tools we'll use for deployment as much as possible.
+* Provide a standardized common working environment for data scientists and DevOps engineers. We want to build using the same tools we'll use for deployment as much as possible.
 * Isolation: for the most part, software running in containers is contained. It interacts with the desktop / laptop user through well-defined mechanisms, often as a web server.
 * Modern Linux workstations, like Fedora Silverblue, make it easy to offload a data science workflow to containers.
 

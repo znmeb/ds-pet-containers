@@ -1,8 +1,8 @@
 # The `postgis` and `pgadmin4` Services
 The `postgis` service is based on the official PostgreSQL image from the Docker Store: <https://store.docker.com/images/postgres>. It is running 
 
-* PostgreSQL 10, 
-* PostGIS 2.4, and
+* PostgreSQL 11, 
+* PostGIS 2.5, and
 * pgRouting 2.5
 
 The `postgis` image acquires PostgreSQL and its accomplices from the official PostgreSQL Global Development Group (PGDG) Debian repositories: <https://www.postgresql.org/download/linux/debian/>.
@@ -10,10 +10,10 @@ The `postgis` image acquires PostgreSQL and its accomplices from the official Po
 ## Connecting to the `postgis` service
 * For security reasons, the `postgis` service is not accessible directly from the host.
 * Inside the Docker network, connect to `postgis`, port 5432.
-* In both cases, the username and maintenance database are `postgres` and the password is `POSTGRES_PASSWORD`.
+* The username and maintenance database are `postgres` and the password is `POSTGRES_PASSWORD`.
 
-## Connecting with pgAdmin4
-pgAdmin4 is a web application that runs in the Docker network. To bring it up, browse to <http://localhost:8686> and log in with the email address and password you set in `.env`.
+## Connecting with `pgAdmin4`
+`pgAdmin4` is a web application that runs in the Docker network. To bring it up, browse to <http://localhost:8686> and log in with the email address and password you set in `.env`.
 
 To connect to the `postgis` service
 
