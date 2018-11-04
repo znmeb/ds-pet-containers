@@ -17,5 +17,4 @@ rpm-ostree install --allow-inactive \
   kernel-tools \
   powertop \
   python3-speedtest-cli \
-  vim-enhanced \
-  xorg-x11-drv-amdgpu
+  vim-enhanced
