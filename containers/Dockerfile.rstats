@@ -20,8 +20,11 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
     curl \
     gdebi-core \
     git-lfs \
+    libmagick++-dev \
+    libpoppler-cpp-dev\
     libpq-dev \
     libssh2-1-dev \
+    libv8-3.14-dev\
     libxml2-dev \
     openssh-client \
     pgdg-keyring \
@@ -31,7 +34,9 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
   && apt-get clean
 
 # R packages
-RUN R -e "install.packages(c('RPostgres', 'tinytex'), quiet = TRUE)"
+RUN R -e "install.packages(c( \
+  'devtools', 'roxygen2', 'testthat', 'pkgdown', 'miniUI', 'tinytex', 'RPostgres' \
+    ), quiet = TRUE)"
 
 # copy the root-level options to /usr/local/src
 COPY rstats-root-scripts  /usr/local/src/
