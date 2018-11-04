@@ -1,0 +1,10 @@
+# Silverblue 29 Hosting
+The original goal of this project was to provide a pet container enviromnet for Fedora Silverblue. Silverblue 29 was released on October 30, 2018.
+
+1. Install Silverblue. The download torrent is at <https://torrent.fedoraproject.org/torrents/Fedora-Silverblue-ostree-x86_64-29.torrent>.
+    See <https://docs.fedoraproject.org/en-US/fedora-silverblue/> for install instructions.
+2. Perform any required software upgrades and reboot.
+3. Clone <https://github,com/znmeb/data-science-pet-containers.git>.
+4. `cd data-science-pet-containers/Silverblue`.
+5. `sudo ./root-setup.bash`. This installs all the container hosting software you need.
+6. Reboot. When the machine comes back up, proceed with installation. That's next, in [Quick Start].
