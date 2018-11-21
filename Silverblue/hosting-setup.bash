@@ -11,3 +11,4 @@ sudo rpm-ostree install --allow-inactive \
   cockpit-selinux \
   docker \
   docker-compose
+cat bashrc >> ~/.bashrc
