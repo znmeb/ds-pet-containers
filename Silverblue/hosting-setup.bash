@@ -1,7 +1,6 @@
 #! /bin/bash
 
-rpm-ostree install --allow-inactive \
-  chrome-gnome-shell \
+sudo rpm-ostree install --allow-inactive \
   cockpit \
   cockpit-dashboard \
   cockpit-doc \
@@ -11,10 +10,5 @@ rpm-ostree install --allow-inactive \
   cockpit-packagekit \
   cockpit-selinux \
   docker \
-  docker-compose \
-  git-lfs \
-  gnome-tweaks \
-  kernel-tools \
-  powertop \
-  python3-speedtest-cli \
-  vim-enhanced
+  docker-compose
+cat bashrc >> ~/.bashrc
