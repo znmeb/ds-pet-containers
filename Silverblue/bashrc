@@ -9,6 +9,9 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+alias l='ls --color=auto -CFtr'
+alias la='ls --color=auto -A'
+alias ll='ls --color=auto -Altr'
 alias up='sudo docker-compose up -d --build'
 alias down='sudo docker-compose down'
 alias stop='sudo docker-compose stop'
