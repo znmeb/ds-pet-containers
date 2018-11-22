@@ -1,5 +1,6 @@
 #! /bin/bash
 
+echo "Installing hosting packages - reboot when completed!"
 sudo rpm-ostree install --allow-inactive \
   docker \
   docker-compose \
