@@ -2,6 +2,7 @@
 
 echo "Installing hosting packages"
 sudo rpm-ostree install --allow-inactive \
+  chrome-gnome-shell \
   chromium \
   docker \
   docker-compose \
