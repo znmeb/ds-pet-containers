@@ -15,6 +15,7 @@ alias ll='ls --color=auto -Altr'
 alias up='sudo docker-compose up -d --build'
 alias down='sudo docker-compose down'
 alias stop='sudo docker-compose stop'
+alias start='sudo docker-compose start'
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 ulimit -s 32768
