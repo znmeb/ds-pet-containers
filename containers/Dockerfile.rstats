@@ -1,4 +1,4 @@
-FROM rocker/rstudio:latest
+FROM docker.io/rocker/rstudio:latest
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
 # need this for keys

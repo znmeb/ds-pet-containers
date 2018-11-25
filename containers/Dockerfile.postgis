@@ -1,4 +1,4 @@
-FROM postgres:11
+FROM docker.io/postgres:11
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
 # Install apt packages
