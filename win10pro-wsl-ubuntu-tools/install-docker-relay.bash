@@ -2,7 +2,7 @@
 
 # reference: https://blogs.msdn.microsoft.com/commandline/2017/12/08/cross-post-wsl-interoperability-with-docker/
 
-export GO_VERSION=1.9.4
+export GO_VERSION=1.11.2
 echo "Installing go $GO_VERSION"
 wget https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
@@ -20,7 +20,7 @@ sudo add-apt-repository \
 sudo apt-get update && sudo apt-get install socat docker-ce
 
 echo "Installing Docker Compose"
-export COMPOSE_VERSION=1.20.1
+export COMPOSE_VERSION=1.23.2
 sudo curl -L \
   https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` \
   -o /usr/local/bin/docker-compose
