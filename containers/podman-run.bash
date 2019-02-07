@@ -1,5 +1,6 @@
 #! /bin/bash
 
+sudo docker rm --force postgis rstats pgadmin4
 sudo podman rm --force postgis rstats pgadmin4
 sudo podman run --detach --name postgis --hostname postgis --publish 5439:5432 --env-file .env postgis:latest
 sudo podman run --detach --name rstats --hostname rstats --publish 8004:8004 --env-file .env rstats:latest
