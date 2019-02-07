@@ -13,6 +13,7 @@ RUN apt-get update \
   && apt-get install -qqy --no-install-recommends \
     gdebi-core \
     git-lfs \
+    inetutils-ping \
     libpq-dev \
     pgdg-keyring \
     postgresql-client-11 \

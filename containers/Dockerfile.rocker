@@ -20,6 +20,7 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
     curl \
     gdebi-core \
     git-lfs \
+    inetutils-ping \
     libpq-dev \
     pgdg-keyring \
     postgresql-client-11 \
