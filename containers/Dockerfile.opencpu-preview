@@ -1,0 +1,5 @@
+FROM rstats:latest
+LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
+
+ADD https://s3.amazonaws.com/rstudio-ide-build/desktop/bionic/amd64/rstudio-1.2.1268-amd64.deb /
+RUN gdebi -n /rstudio-1.2.1268-amd64.deb
