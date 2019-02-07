@@ -28,14 +28,8 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
 # R packages
 RUN R -e "install.packages(c('pkgdown', 'miniUI', 'RPostgres'), quiet = TRUE)"
 
-# copy the root-level options to /usr/local/src
-COPY rstats-root-scripts  /usr/local/src/
-RUN chmod +x  /usr/local/src/*.bash \
-  && echo "alias l='ls -ACF --color=auto'" >> /etc/bash.bashrc \
-  && echo "alias ll='ls -ltrAF --color=auto'" >> /etc/bash.bashrc
-
-# upgrade RStudio Server to the preview release
-RUN /usr/local/src/rstudio-server-preview.bash
+# Install the TinyTeX hook
+RUN su - rstudio -c "R -e 'tinytex::install_tinytex()'"
 
 # rstudio home
 COPY home-scripts /home/rstudio/scripts/
@@ -45,6 +39,3 @@ RUN chmod +x /home/rstudio/scripts/*.bash \
 
 # allow "sudo" and local library writes from the "rstudio" account
 RUN usermod -G sudo,staff rstudio
-
-# Install the TinyTeX hook
-RUN su - rstudio -c "R -e 'tinytex::install_tinytex()'"
