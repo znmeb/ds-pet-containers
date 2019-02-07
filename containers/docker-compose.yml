@@ -3,14 +3,11 @@ services:
   rstats:
     build:
       context: .
-      dockerfile: Dockerfile.rstats
+      dockerfile: Dockerfile.opencpu
     image: rstats
 
-    # RStudio password is just called "PASSWORD"
-    environment:
-      - PASSWORD
     ports:
-      - 8787:8787
+      - 8004:8004
   postgis:
     build:
       context: .
