@@ -8,3 +8,4 @@ sudo podman run --detach --name rstats --hostname rstats --publish 8004:8004 --e
   localhost/rstats:latest
 sudo podman run --detach --name pgadmin4 --hostname pgadmin4 --publish 8686:80 --env-file .env \
   docker.io/dpage/pgadmin4:latest
+sudo podman ps
