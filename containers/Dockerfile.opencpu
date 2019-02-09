@@ -30,6 +30,6 @@ RUN su - opencpu -c "R -e 'tinytex::install_tinytex()'"
 RUN useradd --comment "Default R User" --groups sudo --create-home --shell /bin/bash --user-group rstats \
   && echo "rstats:rstats" | chpasswd
 COPY home-scripts /home/rstats/scripts/
-RUN chmod +x /home/rstats/scripts/*.bash \
+RUN chmod +x /home/rstats/scripts/* \
   && mkdir -p /home/rstats/Projects/ \
   && chown -R rstats:rstats /home/rstats
