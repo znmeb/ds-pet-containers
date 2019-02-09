@@ -1,5 +1,9 @@
 FROM rstats:latest
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
-ADD https://s3.amazonaws.com/rstudio-ide-build/desktop/bionic/amd64/rstudio-1.2.1268-amd64.deb /
-RUN gdebi -n /rstudio-1.2.1268-amd64.deb
+WORKDIR /
+ENV RSTUDIO_VERSION=1.2.1268
+ENV WHERE=https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64
+ENV PACKAGE=rstudio-server-$RSTUDIO_VERSION-amd64.deb`
+RUN wget $WHERE/$PACKAGE \
+  && gdebi -n $PACKAGE
