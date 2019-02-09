@@ -1,4 +1,4 @@
-#! /bin/env/Rscript
+#! /usr/bin/env Rscript
 
 print(DBI::dbCanConnect(
   drv = RPostgres::Postgres(),
