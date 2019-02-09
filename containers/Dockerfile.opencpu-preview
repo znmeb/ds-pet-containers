@@ -4,6 +4,6 @@ LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 WORKDIR /
 ENV RSTUDIO_VERSION=1.2.1268
 ENV WHERE=https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64
-ENV PACKAGE=rstudio-server-$RSTUDIO_VERSION-amd64.deb
-RUN wget $WHERE/$PACKAGE \
-  && gdebi -n $PACKAGE
+ENV PACKAGE=rstudio-server-${RSTUDIO_VERSION}-amd64.deb
+RUN wget ${WHERE}/${PACKAGE}
+RUN gdebi -n ${PACKAGE}
