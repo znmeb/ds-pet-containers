@@ -11,21 +11,15 @@ sudo docker rm --force `sudo docker ps -aq`
 # in the other two containers. See "man podman-run" for details.
 
 sudo podman run --detach --env-file .env \
-  --name postgis --ip "10.88.64.128" --publish 5439:5432 \
-  --add-host "postgis:10.88.64.128" \
-  --add-host "pgadmin4:10.88.64.130" \
-  --add-host "rstats:10.88.64.129" \
+  --hostname postgis --name postgis --ip 10.88.64.128 --publish 5439:5432 \
+  --add-host postgis:10.88.64.128 --add-host pgadmin4:10.88.64.130 --add-host rstats:10.88.64.129 \
   localhost/postgis:latest
 sudo podman run --detach --env-file .env \
-  --name rstats --ip "10.88.64.129" --publish 8004:8004 \
-  --add-host "postgis:10.88.64.128" \
-  --add-host "pgadmin4:10.88.64.130" \
-  --add-host "rstats:10.88.64.129" \
+  --hostname rstats --name rstats --ip 10.88.64.129 --publish 8004:8004 \
+  --add-host postgis:10.88.64.128 --add-host pgadmin4:10.88.64.130 --add-host rstats:10.88.64.129 \
   localhost/rstats:latest
 sudo podman run --detach --env-file .env \
-  --name pgadmin4 --ip "10.88.64.130" --publish 8686:80 \
-  --add-host "postgis:10.88.64.128" \
-  --add-host "pgadmin4:10.88.64.130" \
-  --add-host "rstats:10.88.64.129" \
+  --hostname pgadmin4 --name pgadmin4 --ip 10.88.64.130 --publish 8686:80 \
+  --add-host postgis:10.88.64.128 --add-host pgadmin4:10.88.64.130 --add-host rstats:10.88.64.129 \
   docker.io/dpage/pgadmin4:latest
 sudo podman ps
