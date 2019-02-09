@@ -10,5 +10,5 @@ for (itry in 1:10) {
       password = Sys.getenv("POSTGRES_PASSWORD"),
       dbname = "postgres"
     ))) break
-  sleep(3)
+  Sys.sleep(3)
 }
