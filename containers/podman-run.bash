@@ -23,3 +23,4 @@ sudo podman run --detach --env-file .env \
   --add-host postgis:10.88.64.128 --add-host pgadmin4:10.88.64.130 --add-host rstats:10.88.64.129 \
   docker.io/dpage/pgadmin4:latest
 sudo podman ps
+sudo podman exec -u rstats rstats /home/rstats/scripts/is_postgis_there.R

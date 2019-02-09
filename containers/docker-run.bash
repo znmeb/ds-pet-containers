@@ -14,3 +14,4 @@ sudo docker run --network dspc --detach --env-file .env \
   --hostname pgadmin4 --name pgadmin4 --publish 8686:80 \
   docker.io/dpage/pgadmin4:latest
 sudo docker ps
+sudo docker exec -u rstats rstats /home/rstats/scripts/is_postgis_there.R
