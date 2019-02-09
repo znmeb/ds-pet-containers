@@ -24,3 +24,4 @@ sudo podman run --detach --env-file .env \
   docker.io/dpage/pgadmin4:latest
 sudo podman ps
 sudo podman exec -u rstats rstats /home/rstats/scripts/is_postgis_there.R
+sudo podman exec -it -u postgres pgadmin4 sh -c 'PGPASSWORD=$POSTGRES_PASSWORD psql --host postgis -l'

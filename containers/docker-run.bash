@@ -15,3 +15,4 @@ sudo docker run --network dspc --detach --env-file .env \
   docker.io/dpage/pgadmin4:latest
 sudo docker ps
 sudo docker exec -u rstats rstats /home/rstats/scripts/is_postgis_there.R
+sudo docker exec -it -u postgres pgadmin4 sh -c 'PGPASSWORD=$POSTGRES_PASSWORD psql --host postgis -l'
