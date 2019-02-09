@@ -1,5 +1,5 @@
-podman rm --force `podman ps -aq`
-docker rm --force `docker ps -aq`
+podman rm --force postgis pgadmin4 rstats
+docker rm --force postgis pgadmin4 rstats
 docker network rm dspc
 docker network create --driver bridge dspc
 docker run --network dspc --detach --env-file .env --hostname postgis --name postgis --publish 5439:5432 postgis:latest

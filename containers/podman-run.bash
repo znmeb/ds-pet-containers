@@ -1,7 +1,7 @@
 #! /bin/bash
 
-sudo podman rm --force `sudo podman ps -aq`
-sudo docker rm --force `sudo docker ps -aq`
+sudo podman rm --force postgis pgadmin4 rstats
+sudo docker rm --force postgis pgadmin4 rstats
 
 # podman doesn't have "networks" in the same sense as "docker network". It comes with a single
 # default CNI network: 10.88.0.0/16.

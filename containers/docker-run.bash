@@ -1,7 +1,7 @@
 #! /bin/bash
 
-sudo podman rm --force `sudo podman ps -aq`
-sudo docker rm --force `sudo docker ps -aq`
+sudo podman rm --force postgis pgadmin4 rstats
+sudo docker rm --force postgis pgadmin4 rstats
 sudo docker network rm dspc
 sudo docker network create --driver bridge dspc
 sudo docker run --network dspc --detach --env-file .env \
