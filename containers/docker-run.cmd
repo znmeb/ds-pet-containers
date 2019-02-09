@@ -1,4 +1,3 @@
-podman rm --force postgis pgadmin4 rstats
 docker rm --force postgis pgadmin4 rstats
 docker network rm dspc
 docker network create --driver bridge dspc
