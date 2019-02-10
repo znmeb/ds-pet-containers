@@ -1,0 +1,12 @@
+Package: oRchestRate
+Title: Pet Container Orchestration with R
+Version: 0.0.0.9000
+Authors@R: person("M. Edward (Ed)", "Borasky", email = "znmeb@znmeb.net", role = c("aut", "cre"))
+Description: oRchestRate is a collection of tools for container orchestration 
+  with R / RStudio. It's based on the Docker routines from 
+  https://github.com/smithjd/sqlpetr, but it's expanded to include the Red Hat /
+  Fedora 'podman', 'buildah' and 'skopeo'.
+Depends: R (>= 3.5.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
