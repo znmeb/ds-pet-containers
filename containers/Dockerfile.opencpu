@@ -16,7 +16,7 @@ RUN apt-get update \
     inetutils-ping \
     libpq-dev \
     pgdg-keyring \
-    postgresql-client-11 \
+    postgresql-client-10 \
     wget \
   && apt-get clean
 
