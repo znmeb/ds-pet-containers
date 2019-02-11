@@ -23,5 +23,6 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL
       - PGADMIN_DEFAULT_PASSWORD
+      - PGADMIN_LISTEN_PORT
     ports:
-      - 8686:80
+      - 8686:8686
