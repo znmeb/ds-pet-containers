@@ -11,7 +11,7 @@ docker run --network dspc --detach --env-file .env \
   --hostname rstats --name rstats --publish 8004:8004 \
   rstats:latest
 docker run --network dspc --detach --env-file .env \
-  --hostname pgadmin4 --name pgadmin4 --publish 8686:80 \
+  --hostname pgadmin4 --name pgadmin4 --publish 8686:8686 \
   docker.io/dpage/pgadmin4:latest
 docker ps
 docker exec -u rstats rstats /home/rstats/scripts/is_postgis_there.R
