@@ -16,7 +16,7 @@ services:
     environment:
       - POSTGRES_PASSWORD
     ports:
-      - 5439:5432
+      - 5432:5432
   pgadmin4:
     image: docker.io/dpage/pgadmin4
     environment:
