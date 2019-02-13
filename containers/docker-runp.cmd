@@ -1,7 +1,7 @@
 docker rm --force postgis pgadmin4 rstats
 docker network rm dspc
 docker network create --driver bridge dspc
-docker run --network dspc --detach --env-file .env --hostname postgis --name postgis --publish 5432:5432 postgis:latest
+docker run --network dspc --detach --env-file .env --hostname postgis --name postgis --publish 5439:5432 postgis:latest
 docker run --network dspc --detach --env-file .env --hostname rstats --name rstats --publish 8004:8004 rstatsp:latest
 docker run --network dspc --detach --env-file .env --hostname pgadmin4 --name pgadmin4 --publish 8686:8686 docker.io/dpage/pgadmin4:latest
 docker ps
