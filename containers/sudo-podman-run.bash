@@ -20,16 +20,16 @@ sudo podman pod ls
 echo ""
 echo "running the images in containers"
 sudo podman run --detach --env-file=.env --pod=dspc \
-  --hostname=postgis --name=postgis --ip=10.88.64.128 --publish=5439:5432 \
-  --add-host=postgis:10.88.64.128 --add-host=rstats:10.88.64.129 --add-host=pgadmin4:10.88.64.130 \
+  --hostname=postgis --name=postgis --ip=10.88.0.10 --publish=5439:5432 \
+  --add-host=postgis:10.88.0.10 --add-host=rstats:10.88.0.20 --add-host=pgadmin4:10.88.0.30 \
   localhost/postgis:latest
 sudo podman run --detach --env-file .env --pod dspc \
-  --hostname=rstats --name=rstats --ip=10.88.64.129 --publish=8004:8004 \
-  --add-host=postgis:10.88.64.128 --add-host=rstats:10.88.64.129 --add-host=pgadmin4:10.88.64.130 \
+  --hostname=rstats --name=rstats --ip=10.88.0.20 --publish=8004:8004 \
+  --add-host=postgis:10.88.0.10 --add-host=rstats:10.88.0.20 --add-host=pgadmin4:10.88.0.30 \
   localhost/rstats:latest
 sudo podman run --detach --env-file .env --pod dspc \
-  --hostname=pgadmin4 --name=pgadmin4 --ip=10.88.64.130 --publish=8686:80 \
-  --add-host=postgis:10.88.64.128 --add-host=rstats:10.88.64.129 --add-host=pgadmin4:10.88.64.130 \
+  --hostname=pgadmin4 --name=pgadmin4 --ip=10.88.0.30 --publish=8686:8686 \
+  --add-host=postgis:10.88.0.10 --add-host=rstats:10.88.0.20 --add-host=pgadmin4:10.88.0.30 \
   docker.io/dpage/pgadmin4:latest
 sudo podman pod ls
 sudo podman ps
