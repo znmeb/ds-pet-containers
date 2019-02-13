@@ -26,7 +26,7 @@ sudo podman run --detach --env-file=.env --pod=dspc \
 sudo podman run --detach --env-file .env --pod dspc \
   --hostname=rstats --name=rstats --ip=10.88.0.20 --publish=8004:8004 \
   --add-host=postgis:10.88.0.10 --add-host=rstats:10.88.0.20 --add-host=pgadmin4:10.88.0.30 \
-  localhost/rstats:latest
+  localhost/rstatsp:latest
 sudo podman run --detach --env-file .env --pod dspc \
   --hostname=pgadmin4 --name=pgadmin4 --ip=10.88.0.30 --publish=8686:8686 \
   --add-host=postgis:10.88.0.10 --add-host=rstats:10.88.0.20 --add-host=pgadmin4:10.88.0.30 \
