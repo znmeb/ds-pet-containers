@@ -1,15 +1,20 @@
 #! /bin/bash
 
-sudo podman rm --force postgis pgadmin4 rstats
+echo "force-removing any old containers"
+echo "you can ignore errors when containers don't exist"
 docker rm --force postgis pgadmin4 rstats
+
+echo "creating a fresh Docker network 'dspc'"
 docker network rm dspc
 docker network create --driver bridge dspc
+
+echo "running containers"
 docker run --network dspc --detach --env-file .env \
   --hostname postgis --name postgis --publish 5432:5432 \
   postgis:latest
 docker run --network dspc --detach --env-file .env \
   --hostname rstats --name rstats --publish 8004:8004 \
-  rstats:latest
+  rstatsp:latest
 docker run --network dspc --detach --env-file .env \
   --hostname pgadmin4 --name pgadmin4 --publish 8686:8686 \
   docker.io/dpage/pgadmin4:latest
