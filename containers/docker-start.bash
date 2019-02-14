@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo "startping containers"
+echo "starting containers"
 docker start postgis
 docker start rstats
 docker start pgadmin4
