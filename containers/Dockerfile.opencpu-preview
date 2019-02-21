@@ -2,8 +2,28 @@ FROM rstats:latest
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
 WORKDIR /
-ENV RSTUDIO_VERSION=1.2.1268
+ENV RSTUDIO_VERSION=1.2.1280
 ENV WHERE=https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64
 ENV PACKAGE=rstudio-server-${RSTUDIO_VERSION}-amd64.deb
 RUN wget -q ${WHERE}/${PACKAGE}
 RUN gdebi -n ${PACKAGE}
+
+RUN apt-get update \
+  && apt-get install -qqy --no-install-recommends \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common \
+  && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
+  && add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable" \
+  && apt-get update \
+  && apt-get install -qqy --no-install-recommends \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+  && apt-get clean
+RUN usermod --groups docker --append rstats
