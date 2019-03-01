@@ -15,6 +15,7 @@ docker rm --force postgis pgadmin4 rstats
 echo ""
 echo "creating a fresh pod"
 sudo podman pod rm dspc
+podman pod rm dspc
 sudo podman pod create --infra=false --name=dspc
 sudo podman pod ls
 
