@@ -12,7 +12,7 @@ docker network create --driver bridge dspc
 
 echo "running containers"
 docker run --network dspc --detach --env-file .env \
-  --hostname postgis --name postgis --publish 5432:5432 \
+  --hostname postgis --name postgis --publish 5439:5432 \
   postgis:latest
 docker run --network dspc --detach --env-file .env \
   --hostname rstats --name rstats --publish 8004:8004 \
