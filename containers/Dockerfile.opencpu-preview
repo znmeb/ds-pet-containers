@@ -28,6 +28,7 @@ RUN apt-get update \
     libsqliteodbc \
     odbc-postgresql \
     odbc-mdbtools \
+    openjdk-8-jre-headless \
     unixodbc \
     unixodbc-dev \
   && apt-get clean
