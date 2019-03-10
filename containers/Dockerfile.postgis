@@ -5,6 +5,7 @@ LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 RUN apt-get update \
   && apt-get install -qqy --no-install-recommends \
     inetutils-ping \
+    postgresql-10-cstore-fdw \
     postgresql-10-ogr-fdw \
     postgresql-10-pgrouting \
     postgresql-10-pgrouting-doc \
