@@ -1,0 +1,42 @@
+FROM docker.io/rocker/tidyverse:latest
+LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
+
+# need this for keys
+RUN apt-get update && apt-get install -qqy --no-install-recommends gnupg
+
+# Official PostgreSQL repository
+RUN mkdir -p /etc/apt/sources.list.d/
+COPY pgdg.list.stretch /etc/apt/sources.list.d/pgdg.list
+COPY pgdg.pref /apt/preferences.d/pgdg.pref
+
+# Backports
+COPY backports.list.stretch /etc/apt/sources.list.d/backports.list
+
+# Apt packages
+RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+  && apt-get update \
+  && apt-get upgrade -qqy \
+  && apt-get install -qqy --no-install-recommends \
+    curl \
+    gdebi-core \
+    git-lfs \
+    inetutils-ping \
+    libpq-dev \
+    pgdg-keyring \
+    postgresql-client-11 \
+  && apt-get clean
+
+# R packages
+RUN R -e "install.packages(c('pkgdown', 'miniUI', 'RPostgres'), quiet = TRUE)"
+
+# Install the TinyTeX hook
+RUN su - rstudio -c "R -e 'tinytex::install_tinytex()'"
+
+# rstudio home
+COPY home-scripts /home/rstudio/scripts/
+RUN chmod +x /home/rstudio/scripts/*.bash \
+  && mkdir -p /home/rstudio/Projects/ \
+  && chown -R rstudio:rstudio /home/rstudio
+
+# allow "sudo" and local library writes from the "rstudio" account
+RUN usermod -G sudo,staff rstudio

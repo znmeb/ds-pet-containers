@@ -1,0 +1,41 @@
+FROM docker.io/opencpu/rstudio:latest
+LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
+
+# Official PostgreSQL repository
+RUN curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - \
+  && mkdir -p /etc/apt/sources.list.d/
+COPY pgdg.list.bionic /etc/apt/sources.list.d/pgdg.list
+COPY pgdg.pref /apt/preferences.d/pgdg.pref
+
+# apt packages
+RUN apt-get update \
+  && apt-get upgrade -qqy \
+  && apt-get install -qqy --no-install-recommends \
+    gdebi-core \
+    git-lfs \
+    inetutils-ping \
+    libpq-dev \
+    pgdg-keyring \
+    postgresql-client-11 \
+    wget \
+    libsqliteodbc \
+    odbc-postgresql \
+    odbc-mdbtools \
+    openjdk-8-jre-headless \
+    unixodbc \
+    unixodbc-dev \
+  && apt-get clean
+
+# R packages
+RUN R -e "install.packages(c('devtools', 'roxygen2', 'tidyverse', 'pkgdown', 'miniUI', 'RPostgres'), quiet = TRUE)"
+
+# Install the TinyTeX hook
+RUN su - opencpu -c "R -e 'tinytex::install_tinytex()'"
+
+# rstats home
+RUN useradd --comment "Default R User" --groups sudo --create-home --shell /bin/bash --user-group rstats \
+  && echo "rstats:rstats" | chpasswd
+COPY home-scripts /home/rstats/scripts/
+RUN chmod +x /home/rstats/scripts/* \
+  && mkdir -p /home/rstats/Projects/ \
+  && chown -R rstats:rstats /home/rstats
