@@ -12,6 +12,5 @@ RUN apt-get update \
     postgresql-9.6-pgrouting-scripts \
     postgresql-9.6-postgis-2.5 \
     postgresql-9.6-postgis-2.5-scripts \
-    postgresql-9.6-postgis-scripts \
     postgresql-client-9.6 \
   && apt-get clean
