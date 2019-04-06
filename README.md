@@ -3,6 +3,18 @@
 
 M. Edward (Ed) Borasky <znmeb@znmeb.net>, 2018-09-19
 
+## Update - 6 April 2019
+
+You probably noticed the new name, `silver-potato`. I've been working
+a lot with Fedora Silverblue and wanted something with "silver" in it,
+so I asked GitHub to generate "memorable" project names. The second one
+it came up with was `silver-potato` and I said, "OK, cool, done!" Then
+today I did a Google search for "Silver Potato". And ...
+
+<http://www.kaiju.com/bios/sil_01.htm>
+
+So watch this space - there's probably another rename coming.
+
 ## Update - 17 September 2018
 
 I’m forking this project to clean it up for use outside of Hack Oregon.
