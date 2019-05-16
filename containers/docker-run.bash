@@ -2,8 +2,6 @@
 
 echo "force-removing any old containers"
 echo "you can ignore errors when containers don't exist"
-sudo podman rm --force postgis pgadmin4 rstats
-podman rm --force postgis pgadmin4 rstats
 docker rm --force postgis pgadmin4 rstats
 
 echo "creating a fresh Docker network 'dspc'"
