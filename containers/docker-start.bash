@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "starting containers"
-docker start postgis
-docker start rstats
-docker start pgadmin4
-docker ps --all
+sudo docker start postgis
+sudo docker start rstats
+sudo docker start pgadmin4
+sudo docker ps --all
