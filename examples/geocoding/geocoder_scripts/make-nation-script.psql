@@ -1,5 +1,0 @@
-\t
-\a
-\o /gisdata/nation.bash
-SELECT loader_generate_nation_script('sh');
-\o

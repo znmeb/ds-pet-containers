@@ -16,8 +16,14 @@ RUN apt-get update \
     inetutils-ping \
     libpq-dev \
     pgdg-keyring \
-    postgresql-client-10 \
+    postgresql-client-11 \
     wget \
+    libsqliteodbc \
+    odbc-postgresql \
+    odbc-mdbtools \
+    openjdk-8-jre-headless \
+    unixodbc \
+    unixodbc-dev \
   && apt-get clean
 
 # R packages

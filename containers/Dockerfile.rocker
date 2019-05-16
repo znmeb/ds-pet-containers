@@ -23,7 +23,7 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
     inetutils-ping \
     libpq-dev \
     pgdg-keyring \
-    postgresql-client-10 \
+    postgresql-client-11 \
   && apt-get clean
 
 # R packages
