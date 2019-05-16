@@ -2,7 +2,7 @@ FROM rstats:latest
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
 WORKDIR /
-ENV RSTUDIO_VERSION=1.2.1335
+ENV RSTUDIO_VERSION=1.2.1511
 ENV WHERE=https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64
 ENV PACKAGE=rstudio-server-${RSTUDIO_VERSION}-amd64.deb
 RUN wget -q ${WHERE}/${PACKAGE}
