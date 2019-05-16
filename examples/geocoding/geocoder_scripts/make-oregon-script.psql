@@ -1,5 +1,0 @@
-\t
-\a
-\o /gisdata/oregon.bash
-SELECT loader_generate_script(ARRAY['OR'], 'sh');
-\o
