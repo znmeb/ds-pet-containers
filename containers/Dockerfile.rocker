@@ -26,9 +26,6 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
     postgresql-client-11 \
   && apt-get clean
 
-# R packages
-RUN R -e "install.packages(c('pkgdown', 'miniUI', 'RPostgres'), quiet = TRUE)"
-
 # rstudio home
 COPY home-scripts /home/rstudio/scripts/
 RUN chmod +x /home/rstudio/scripts/*.bash \
@@ -36,4 +33,7 @@ RUN chmod +x /home/rstudio/scripts/*.bash \
   && chown -R rstudio:rstudio /home/rstudio
 
 # allow "sudo" and local library writes from the "rstudio" account
-RUN usermod -G sudo,staff rstudio
+RUN usermod -aG sudo,staff rstudio
+
+# spatial add-ons
+RUN su - rstudio -c "/home/rstudio/scripts/spatial-add-ons.R"

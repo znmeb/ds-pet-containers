@@ -1,4 +1,4 @@
 #! /bin/bash
 
 cd $HOME/Projects
-git clone https://github.com/znmeb/data-science-pet-containers.git
+git clone https://github.com/znmeb/silver-potato.git

@@ -1,4 +1,4 @@
 #! /bin/bash
 
-xdg-open http://localhost:8004/rstudio # RStudio Server
+xdg-open http://localhost:8787 # RStudio Server
 xdg-open http://localhost:8686 # pgAdmin4
