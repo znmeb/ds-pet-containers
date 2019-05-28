@@ -1,0 +1,6 @@
+FROM docker.io/dpage/pgadmin4:latest
+LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
+# documentation: https://hub.docker.com/r/dpage/pgadmin4/
+
+# add the servers.json
+COPY ./pgadmin4-config-files/servers.json /pgadmin4
