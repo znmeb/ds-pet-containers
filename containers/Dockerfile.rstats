@@ -21,9 +21,15 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
     gdebi-core \
     git-lfs \
     inetutils-ping \
+    jags \
     libpq-dev \
     pgdg-keyring \
     postgresql-client-11 \
+    python-dev \
+    python-pip \
+    python3-dev \
+    python3-pip \
+    virtualenvwrapper \
   && apt-get clean
 
 # rstudio home
@@ -34,6 +40,3 @@ RUN chmod +x /home/rstudio/scripts/*.bash \
 
 # allow "sudo" and local library writes from the "rstudio" account
 RUN usermod -aG sudo,staff rstudio
-
-# spatial add-ons
-RUN su - rstudio -c "/home/rstudio/scripts/spatial-add-ons.R"
