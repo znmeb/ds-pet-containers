@@ -1,6 +1,4 @@
-#! /usr/bin/env Rscript
-
-install.packages(c(
+BiocManager::install(c(
   "acs",
   "ggmap",
   "mapdeck",
