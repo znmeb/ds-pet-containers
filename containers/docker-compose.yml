@@ -26,3 +26,11 @@ services:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
       - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT}
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    image: docker.io/znmeb/jupyter
+    network_mode: "host"
+    environment:
+      - JUPYTER_PASSWORD=${JUPYTER_PASSWORD}

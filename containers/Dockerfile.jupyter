@@ -1,0 +1,16 @@
+FROM docker.io/continuumio/anaconda3:latest
+LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
+
+# set up unprivileged user
+RUN useradd --comment "Jupyter Notebook Server" \
+  --uid 1000 --user-group --groups wheel --create-home --shell /bin/bash jupyter && \
+  usermod -aG wheel jupyter
+COPY home-scripts /home/jupyter/scripts/
+RUN chmod +x /home/jupyter/scripts/*.bash && \
+  mkdir -p /home/jupyter/Projects/ && \
+  mkdir -p /home/jupyter/Downloads/ && \
+  chown -R jupyter:jupyter /home/jupyter
+
+# reset work directory
+WORKDIR /home/jupyter/Projects
+CMD su - jupyter --command "jupyter notebook --no-browser --ip=0.0.0.0"
