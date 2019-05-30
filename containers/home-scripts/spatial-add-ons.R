@@ -1,3 +1,5 @@
+#! /usr/bin/env Rscript
+
 BiocManager::install(c(
   "acs",
   "ggmap",

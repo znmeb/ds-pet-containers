@@ -1,3 +1,5 @@
+#! /usr/bin/env Rscript
+
 BiocManager::install(c(
   "brms",
   "rjags",
@@ -10,7 +12,7 @@ BiocManager::install(c(
 install.packages(
   "INLA",
   repos = c(
-    CRAN,
+    getOption("repos")[["CRAN"]],
     INLA = "https://inla.r-inla-download.org/R/stable"
   ),
 quiet = TRUE)

@@ -1,7 +1,26 @@
 
-# Data Science Pet Containers
+# The `silver-potato` Project - Pet Containers for Data Science
 
-M. Edward (Ed) Borasky <znmeb@znmeb.net>, 2019-05-16
+M. Edward (Ed) Borasky <znmeb@znmeb.net>, 2019-05-29
+
+## Update - 29 May 2019
+
+I’m inching towards a release. I’m spending most of my time
+self-dogfooding on two projects, one in sports analyics and another in
+deep learning. As a result I’ve added some features:
+
+1.  The `rstats` image now contains `Miniconda3`. There is a `conda`
+    environment called `r-tensorflow`, which has the Python packages
+    required by the RStudio deep learning stack plus `pytorch` and
+    Jupyter. So you can bring up the services, browse to RStudio Server,
+    log in, and then start up a Jupyter notebook server. Both Python 3
+    and R notebooks work.
+2.  I’ve gone back to `docker-compose` for starting up the services.
+3.  The `rstats` command line now can do passwordless `sudo`, just like
+    those fancy instances on AWS or Digital Ocean.
+4.  I’m going to have autobuild images on Docker Hub. The `rstats` image
+    is so big I don’t expect people to build it locally any more - it
+    just takes too long.
 
 ## Update - 16 May 2019
 
