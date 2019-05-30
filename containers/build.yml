@@ -1,16 +1,25 @@
 version: "3.7"
 services:
   postgis:
+    build:
+      context: .
+      dockerfile: Dockerfile.postgis
     image: docker.io/znmeb/postgis
     network_mode: "host"
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
   rstats:
+    build:
+      context: .
+      dockerfile: Dockerfile.rstats
     image: docker.io/znmeb/rstats
     network_mode: "host"
     environment:
       - PASSWORD=${RSTUDIO_PASSWORD}
   pgadmin4:
+    build:
+      context: .
+      dockerfile: Dockerfile.pgadmin4
     image: docker.io/znmeb/pgadmin4
     network_mode: "host"
     environment:
