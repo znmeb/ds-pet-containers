@@ -14,3 +14,6 @@ RUN apt-get update \
     postgresql-11-postgis-2.5-scripts \
     postgresql-client-11 \
   && apt-get clean
+
+# change port to 5439
+COPY postgis-scripts/change-port.sql /docker-entrypoint-initdb.d/
