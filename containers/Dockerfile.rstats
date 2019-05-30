@@ -20,6 +20,7 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
   && apt-get update \
   && apt-get upgrade -qqy \
   && apt-get install -qqy --no-install-recommends \
+    bzip2 \
     curl \
     gdebi-core \
     git-lfs \
