@@ -4,7 +4,7 @@
             "Name": "PostGIS",
             "Group": "Servers",
             "Host": "localhost",
-            "Port": 5432,
+            "Port": 5439,
             "MaintenanceDB": "postgres",
             "Username": "postgres",
             "SSLMode": "prefer",
