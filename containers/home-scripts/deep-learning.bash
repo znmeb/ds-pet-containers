@@ -19,7 +19,4 @@ echo "Updating base"
 conda activate base
 conda update --all --yes
 echo "Creating conda 'r-tensorflow' environment"
-conda create --name r-tensorflow --yes pip
-echo "Installing deep learning packages with pip"
-conda activate r-tensorflow
-pip install --upgrade keras tensorflow torch
+conda create --name r-tensorflow --yes keras tensorflow
