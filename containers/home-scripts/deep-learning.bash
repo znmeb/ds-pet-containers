@@ -19,6 +19,4 @@ echo "Updating base"
 conda activate base
 conda update --all --yes
 echo "Creating conda 'r-tensorflow' environment"
-conda create --name r-tensorflow --yes jupyter ipyparallel keras tensorflow pytorch
-conda activate r-tensorflow
-ipcluster nbextension enable --user
+conda create --name r-tensorflow --yes keras tensorflow pytorch

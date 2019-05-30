@@ -1,8 +1,8 @@
-FROM docker.io/rocker/geospatial:latest
+FROM docker.io/rocker/tidyverse:latest
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
 # need this for keys
-RUN apt-get update && apt-get install -qqy --no-install-recommends gnupg
+RUN apt-get update && apt-get install -qqy --no-install-recommends gnupg && apt-get clean
 
 # Official PostgreSQL repository
 RUN mkdir -p /etc/apt/sources.list.d/
@@ -12,7 +12,10 @@ COPY pgdg.pref /apt/preferences.d/pgdg.pref
 # Backports
 COPY backports.list.stretch /etc/apt/sources.list.d/backports.list
 
-# Apt packages
+# passwordless sudo
+COPY 10-installer /etc/sudoers.d/
+
+# Apt packages and user permissions
 RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
   && apt-get update \
   && apt-get upgrade -qqy \
@@ -21,31 +24,18 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
     gdebi-core \
     git-lfs \
     inetutils-ping \
-    jags \
     libpq-dev \
     libsodium-dev \
     pgdg-keyring \
     postgresql-client-11 \
-    python-dev \
-    python-pip \
-    python3-dev \
-    python3-pip \
-    virtualenvwrapper \
-  && apt-get clean
+  && apt-get clean \
+  && usermod -aG sudo,staff rstudio \
+  && chmod 0750 /etc/sudoers.d && chmod 0440 /etc/sudoers.d/*
 
 # rstudio home
 COPY home-scripts /home/rstudio/scripts/
-RUN chmod +x /home/rstudio/scripts/*.bash \
+RUN chmod +x /home/rstudio/scripts/* \
   && mkdir -p /home/rstudio/Projects/ \
-  && chown -R rstudio:rstudio /home/rstudio
-
-# allow "sudo" and local library writes from the "rstudio" account
-RUN usermod -aG sudo,staff rstudio
-COPY 10-installer /etc/sudoers.d
-RUN chmod 0750 /etc/sudoers.d && chmod 0440 /etc/sudoers.d/*
-
-# Install Python stack: Miniconda3, jupyter, ipyparallel, keras, tensorflow and torch
-RUN su - rstudio --command "/home/rstudio/scripts/miniconda-jupyter.bash"
-
-# Install R deep learning stack
-RUN su - rstudio --command "/home/rstudio/scripts/deep-learning.R"
+  && chown -R rstudio:rstudio /home/rstudio \
+  && su - rstudio --command "/home/rstudio/scripts/deep-learning.bash" \
+  && su - rstudio --command "/home/rstudio/scripts/deep-learning.R"
