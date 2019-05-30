@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "Activating the 'r-tensorflow' environment"
-. /home/rstudio/miniconda3/etc/profile.d/conda.sh
+. ${HOME}/miniconda3/etc/profile.d/conda.sh
 conda activate r-tensorflow
 echo "Setting notebook password"
 jupyter notebook password
