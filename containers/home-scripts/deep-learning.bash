@@ -4,8 +4,6 @@
 echo "Making sure $HOME/Downloads/Installers exists."
 mkdir -p $HOME/Downloads/Installers
 pushd $HOME/Downloads/Installers
-echo "Removing any old Miniconda3 installers."
-rm -f Miniconda3*
 echo "Downloading the latest Miniconda3 installer."
 wget -q https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
@@ -14,6 +12,7 @@ echo "Removing any old Miniconda3 installation"
 rm -fr $HOME/miniconda3
 echo "Batch installing Miniconda3"
 bash $HOME/Downloads/Installers/Miniconda3-latest-Linux-x86_64.sh -b
+rm -f Miniconda3*
 echo "Updating base"
 . "$HOME/miniconda3/etc/profile.d/conda.sh"
 conda activate base
