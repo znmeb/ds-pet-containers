@@ -5,24 +5,27 @@ services:
       context: .
       dockerfile: Dockerfile.postgis
     image: docker.io/znmeb/postgis
-    network_mode: "host"
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_HOST_PORT}:5439
   rstats:
     build:
       context: .
       dockerfile: Dockerfile.rstats
     image: docker.io/znmeb/rstats
-    network_mode: "host"
     environment:
       - PASSWORD=${RSTUDIO_PASSWORD}
+    ports:
+      - 8787:8787
   pgadmin4:
     build:
       context: .
       dockerfile: Dockerfile.pgadmin4
     image: docker.io/znmeb/pgadmin4
-    network_mode: "host"
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
       - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT}
+    ports:
+      - ${PGADMIN_LISTEN_PORT}:${PGADMIN_LISTEN_PORT}
