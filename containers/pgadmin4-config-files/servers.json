@@ -3,7 +3,7 @@
         "1": {
             "Name": "PostGIS",
             "Group": "Servers",
-            "Host": "postgis",
+            "Host": "localhost",
             "Port": 5439,
             "MaintenanceDB": "postgres",
             "Username": "postgres",
