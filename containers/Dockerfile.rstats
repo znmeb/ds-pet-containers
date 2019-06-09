@@ -36,6 +36,4 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
 COPY home-scripts /home/rstudio/scripts/
 RUN chmod +x /home/rstudio/scripts/* \
   && mkdir -p /home/rstudio/Projects/ \
-  && chown -R rstudio:rstudio /home/rstudio \
-  && su - rstudio --command "/home/rstudio/scripts/deep-learning.bash" \
-  && su - rstudio --command "/home/rstudio/scripts/deep-learning.R"
+  && chown -R rstudio:rstudio /home/rstudio

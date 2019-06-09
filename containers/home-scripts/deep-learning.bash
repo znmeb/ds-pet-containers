@@ -13,9 +13,26 @@ rm -fr $HOME/miniconda3
 echo "Batch installing Miniconda3"
 bash $HOME/Downloads/Installers/Miniconda3-latest-Linux-x86_64.sh -b
 rm -f Miniconda3*
+popd
 echo "Updating base"
 . "$HOME/miniconda3/etc/profile.d/conda.sh"
 conda activate base
 conda update --all --yes
 echo "Creating conda 'r-tensorflow' environment"
-conda create --name r-tensorflow --yes keras tensorflow
+conda env remove --yes --name r-tensorflow
+conda create --yes --name r-tensorflow \
+  geopandas \
+  ipyparallel \
+  jupyter \
+  keras \
+  matplotlib \
+  pandas \
+  simplegeneric \
+  SymPy \
+  tensorflow
+conda activate r-tensorflow
+conda install pytorch-cpu torchvision-cpu --yes --channel pytorch
+ipcluster nbextension enable --user
+
+# R
+$HOME/scripts/deep-learning.R
