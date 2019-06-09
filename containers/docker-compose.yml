@@ -12,6 +12,7 @@ services:
       - PASSWORD=${RSTUDIO_PASSWORD}
     ports:
             - 8787:8787
+            - 8888:8888
   pgadmin4:
     image: docker.io/znmeb/pgadmin4
     environment:

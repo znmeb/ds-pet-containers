@@ -33,7 +33,7 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
   && chmod 0750 /etc/sudoers.d && chmod 0440 /etc/sudoers.d/*
 
 # rstudio home
-COPY home-scripts /home/rstudio/scripts/
+COPY rstats-scripts /home/rstudio/scripts/
 RUN chmod +x /home/rstudio/scripts/* \
   && mkdir -p /home/rstudio/Projects/ \
   && chown -R rstudio:rstudio /home/rstudio

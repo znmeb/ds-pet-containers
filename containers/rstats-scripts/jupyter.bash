@@ -35,4 +35,4 @@ conda install pytorch-cpu torchvision-cpu --yes --channel pytorch
 ipcluster nbextension enable --user
 
 # R
-$HOME/scripts/deep-learning.R
+$HOME/scripts/jupyter.R
