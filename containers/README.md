@@ -13,6 +13,7 @@
     * pgadmin4: the service is listening on `localhost:8686`. First, log in with the email address and password you set for `pgadmin4` in `.env`. Then, click on the `Servers` tab in the tree on the left panel. It will ask you for the `postgres` password you set in `.env`. Then it will connect to the `postgis` container.
     * rstats: the service is listening on `localhost:8787`. Log in as `rstudio` with the password you set in `.env`.
 4. Jupyter and Python deep learning stack: `silver-potato` now has scripts to install a Jupyter data science / machine learning stack.
+
     a. Browse to RStudio Server at <http://localhost:8787>.
     b. Go to the `Terminal` tab and type `scripts/jupyter.bash`. This will
         - Install Miniconda3.
