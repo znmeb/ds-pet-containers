@@ -13,12 +13,11 @@
     * pgadmin4: the service is listening on `localhost:8686`. First, log in with the email address and password you set for `pgadmin4` in `.env`. Then, click on the `Servers` tab in the tree on the left panel. It will ask you for the `postgres` password you set in `.env`. Then it will connect to the `postgis` container.
     * rstats: the service is listening on `localhost:8787`. Log in as `rstudio` with the password you set in `.env`.
 4. Jupyter and Python deep learning stack: `silver-potato` now has scripts to install a Jupyter data science / machine learning stack.
-
-    a. Browse to RStudio Server at <http://localhost:8787>.
-    b. Go to the `Terminal` tab and type `scripts/jupyter.bash`. This will
+    1. Browse to RStudio Server at <http://localhost:8787>.
+    2. Go to the `Terminal` tab and type `scripts/jupyter.bash`. This will
         - Install Miniconda3.
         - Create a Conda environment called `r-tensorflow` with the Jupyter stack, `keras`, `tensorflow`, `pytorch-cpu` and `torchvision-cpu`.
         - Install the R packages that support R kernels in Jupyter notebooks and the R interface to `keras` and `tensorflow`.
         - Test that all the infrastructure works.
-    c. The installation will take some time because of the number of Python and R packages it needs to download and install in `r-tensorflow` and the local R library. Once it completes, type `scripts/start-jupyter.bash` to open a Jupyter notebook server on <http://localhost:8888>. The script will ask you to set a notebook password. Both Python 3 and R notebooks are available.
+    3. The installation will take some time because of the number of Python and R packages it needs to download and install in `r-tensorflow` and the local R library. Once it completes, type `scripts/start-jupyter.bash` to open a Jupyter notebook server on <http://localhost:8888>. The script will ask you to set a notebook password. Both Python 3 and R notebooks are available.
 5. To stop the services, type `docker-compose stop`. To start them back up again, type `docker-compose start`. If you're using the Jupyter notebook server, you'll need to restart it using the RStudio Server terminal.
