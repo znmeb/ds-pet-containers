@@ -20,12 +20,15 @@ RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4
   && apt-get update \
   && apt-get upgrade -qqy \
   && apt-get install -qqy --no-install-recommends \
+    apt-transport-https \
     bzip2 \
     curl \
     gdebi-core \
     git-lfs \
+    gnupg \
     inetutils-ping \
     libpq-dev \
+    lsb-release \
     pgdg-keyring \
     postgresql-client-11 \
     vim-nox \
