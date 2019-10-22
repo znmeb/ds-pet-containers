@@ -15,10 +15,9 @@ sudo apt-get update -y
 sudo apt-get install -y -V libarrow-dev # For C++
 sudo apt-get install -y -V libarrow-glib-dev # For GLib (C)
 sudo apt-get install -y -V libarrow-flight-dev # For Flight C++
-sudo apt-get install -y -V libplasma-dev # For Plasma C++
-sudo apt-get install -y -V libplasma-glib-dev # For Plasma GLib (C)
 sudo apt-get install -y -V libgandiva-dev # For Gandiva C++
 sudo apt-get install -y -V libgandiva-glib-dev # For Gandiva GLib (C)
 sudo apt-get install -y -V libparquet-dev # For Apache Parquet C++
 sudo apt-get install -y -V libparquet-glib-dev # For Apache Parquet GLib (C)
+sudo apt-get autoremove -y
 R -e 'install.packages("arrow")'
