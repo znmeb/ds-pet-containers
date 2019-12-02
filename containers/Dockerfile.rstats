@@ -1,13 +1,5 @@
-FROM docker.io/rocker/tidyverse:latest
+FROM docker.io/rocker/geospatial:latest
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
-
-# need this for keys
-RUN apt-get update && apt-get install -qqy --no-install-recommends gnupg && apt-get clean
-
-# Official PostgreSQL repository
-RUN mkdir -p /etc/apt/sources.list.d/
-COPY pgdg.list.stretch /etc/apt/sources.list.d/pgdg.list
-COPY pgdg.pref /apt/preferences.d/pgdg.pref
 
 # Backports
 COPY backports.list.stretch /etc/apt/sources.list.d/backports.list
@@ -16,21 +8,10 @@ COPY backports.list.stretch /etc/apt/sources.list.d/backports.list
 COPY 10-installer /etc/sudoers.d/
 
 # Apt packages and user permissions
-RUN wget --quiet --output-document=- https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-  && apt-get update \
+RUN apt-get update \
   && apt-get upgrade -qqy \
   && apt-get install -qqy --no-install-recommends \
-    apt-transport-https \
-    bzip2 \
-    curl \
-    gdebi-core \
     git-lfs \
-    gnupg \
-    inetutils-ping \
-    libpq-dev \
-    lsb-release \
-    pgdg-keyring \
-    postgresql-client-11 \
     vim-nox \
   && apt-get clean \
   && usermod -aG sudo,staff rstudio \
