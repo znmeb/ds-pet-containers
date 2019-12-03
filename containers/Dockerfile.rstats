@@ -17,8 +17,6 @@ RUN apt-get update \
   && usermod -aG sudo,staff rstudio \
   && chmod 0750 /etc/sudoers.d && chmod 0440 /etc/sudoers.d/*
 
-# rstudio home
-COPY rstats-scripts /home/rstudio/scripts/
-RUN chmod +x /home/rstudio/scripts/* \
-  && mkdir -p /home/rstudio/Projects/ \
-  && chown -R rstudio:rstudio /home/rstudio
+COPY rstats-scripts /usr/local/src/scripts/
+RUN chmod +x /usr/local/src/scripts/* \
+  && chown -R rstudio:rstudio /usr/local/src/scripts
