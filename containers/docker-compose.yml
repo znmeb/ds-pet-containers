@@ -9,6 +9,8 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - ${POSTGRES_HOST_PORT}:5439
+    volumes:
+      - ${SHARED_WORK_AREA}:/Work
   rstats:
     build:
       context: .
@@ -19,6 +21,9 @@ services:
     ports:
             - 8787:8787
             - 8888:8888
+    volumes:
+      - ${SHARED_WORK_AREA}:/Work
+      - ${HOME}:/home/rstudio
   pgadmin4:
     build:
       context: .
@@ -30,3 +35,5 @@ services:
       - PGADMIN_LISTEN_PORT=${PGADMIN_LISTEN_PORT}
     ports:
             - 8686:8686
+    volumes:
+      - ${SHARED_WORK_AREA}:/Work
