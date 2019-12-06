@@ -7,15 +7,35 @@ COPY backports.list.stretch /etc/apt/sources.list.d/backports.list
 # passwordless sudo
 COPY 10-installer /etc/sudoers.d/
 
+# Docker sibling containers (https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)
 # Apt packages and user permissions
 RUN apt-get update \
   && apt-get upgrade -qqy \
   && apt-get install -qqy --no-install-recommends \
+    apt-transport-https \
+    ca-certificates \
+    curl \
     git-lfs \
+    gnupg2 \
+    libsodium-dev \
+    software-properties-common \
     vim-nox \
   && apt-get clean \
   && usermod -aG sudo,staff rstudio \
   && chmod 0750 /etc/sudoers.d && chmod 0440 /etc/sudoers.d/*
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
+  && apt-key fingerprint 0EBFCD88 \
+  && add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+RUN apt-get update \
+  && apt-get upgrade -qqy \
+  && apt-get install -qqy --no-install-recommends \
+    containerd.io \
+    docker-ce \
+    docker-ce-cli \
+  && apt-get clean \
+  && usermod -aG docker rstudio
 
 COPY rstats-scripts /usr/local/src/scripts/
 RUN chmod +x /usr/local/src/scripts/* \

@@ -24,6 +24,7 @@ services:
     volumes:
       - ${SHARED_WORK_AREA}:/Work
       - ${HOME}:/home/rstudio
+      - /var/run/docker.sock:/var/run/docker.sock
   pgadmin4:
     build:
       context: .
