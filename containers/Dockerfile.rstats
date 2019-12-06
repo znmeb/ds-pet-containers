@@ -12,6 +12,7 @@ RUN apt-get update \
   && apt-get upgrade -qqy \
   && apt-get install -qqy --no-install-recommends \
     git-lfs \
+    libsodium-dev \
     vim-nox \
   && apt-get clean \
   && usermod -aG sudo,staff rstudio \
