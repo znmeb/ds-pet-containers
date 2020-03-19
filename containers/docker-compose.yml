@@ -8,7 +8,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - ${POSTGRES_HOST_PORT}:5439
+      - ${POSTGRES_HOST_PORT}:5435
     volumes:
       - ${SHARED_WORK_AREA}:/Work
   rstats:
