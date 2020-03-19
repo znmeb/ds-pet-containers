@@ -1,4 +1,4 @@
-FROM docker.io/library/postgres:11
+FROM docker.io/library/postgres:12
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
 # Install apt packages
@@ -6,14 +6,14 @@ RUN apt-get update \
   && apt-get install -qqy --no-install-recommends \
     inetutils-ping \
     pgloader \
-    postgresql-11-cstore-fdw \
-    postgresql-11-ogr-fdw \
-    postgresql-11-pgrouting \
-    postgresql-11-pgrouting-doc \
-    postgresql-11-pgrouting-scripts \
-    postgresql-11-postgis-2.5 \
-    postgresql-11-postgis-2.5-scripts \
-    postgresql-client-11 \
+    postgresql-12-cstore-fdw \
+    postgresql-12-ogr-fdw \
+    postgresql-12-pgrouting \
+    postgresql-12-pgrouting-doc \
+    postgresql-12-pgrouting-scripts \
+    postgresql-12-postgis-2.5 \
+    postgresql-12-postgis-2.5-scripts \
+    postgresql-client-12 \
   && apt-get clean
 
 # change port to 5439
