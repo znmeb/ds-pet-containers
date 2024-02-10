@@ -6,8 +6,12 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# The `silver-potato` Project - Pet Containers for Data Science
+# The `ds-pet-containers` Project - Pet Containers for Data Science
 M. Edward (Ed) Borasky <znmeb@znmeb.net>, `r Sys.Date()`
+
+## Update - 10 Feb 2024
+
+New name, porting to Fedora Atomic Desktop / buildah / podman
 
 ## Update - 29 May 2019
 I'm inching towards a release. I'm spending most of my time self-dogfooding on two projects, one in sports analyics and another in deep learning. As a result I've added some features:

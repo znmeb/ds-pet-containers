@@ -1,7 +1,7 @@
 
-# The `ds-pet-container` Project - Pet Containers for Data Science
+# The `ds-pet-containers` Project - Pet Containers for Data Science
 
-M. Edward (Ed) Borasky <znmeb@znmeb.net>, 2019-05-29
+M. Edward (Ed) Borasky <znmeb@znmeb.net>, 2024-02-10
 
 ## Update - 10 Feb 2024
 
@@ -36,7 +36,7 @@ deep learning. As a result I’ve added some features:
     by my neighbors at Intel in Hillsboro, Oregon. It’s highly optimized
     for Intel processors, of course. It should work anywhere Docker
     runs. Even Windows 10 Pro. I hope. :-)
-3.  PostgreSQL now goes to 11\!
+3.  PostgreSQL now goes to 11!
 4.  The renaming stays - we are Silver Potato until somebody sends me a
     cease-and-desist letter.
 
@@ -45,7 +45,7 @@ deep learning. As a result I’ve added some features:
 You probably noticed the new name, `silver-potato`. I’ve been working a
 lot with Fedora Silverblue and wanted something with “silver” in it, so
 I asked GitHub to generate “memorable” project names. The second one it
-came up with was `silver-potato` and I said, “OK, cool, done\!” Then
+came up with was `silver-potato` and I said, “OK, cool, done!” Then
 today I did a Google search for “Silver Potato”. And …
 
 <http://www.kaiju.com/bios/sil_01.htm>
