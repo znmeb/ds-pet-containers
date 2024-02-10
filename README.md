@@ -1,7 +1,11 @@
 
-# The `silver-potato` Project - Pet Containers for Data Science
+# The `ds-pet-container` Project - Pet Containers for Data Science
 
 M. Edward (Ed) Borasky <znmeb@znmeb.net>, 2019-05-29
+
+## Update - 10 Feb 2024
+
+New name, porting to Fedora Atomic Desktop / buildah / podman
 
 ## Update - 29 May 2019
 
