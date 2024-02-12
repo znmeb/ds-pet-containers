@@ -1,23 +1,17 @@
-FROM docker.io/rocker/geospatial:latest
+FROM registry.fedoraproject.org/fedora:39
 LABEL maintainer="M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 
-# Backports
-COPY backports.list.stretch /etc/apt/sources.list.d/backports.list
-
 # passwordless sudo
-COPY 10-installer /etc/sudoers.d/
+#COPY 10-installer /etc/sudoers.d/
 
-# Apt packages and user permissions
-RUN apt-get update \
-  && apt-get upgrade -qqy \
-  && apt-get install -qqy --no-install-recommends \
-    git-lfs \
-    libsodium-dev \
-    vim-nox \
-  && apt-get clean \
-  && usermod -aG sudo,staff rstudio \
-  && chmod 0750 /etc/sudoers.d && chmod 0440 /etc/sudoers.d/*
-
-COPY rstats-scripts /usr/local/src/scripts/
-RUN chmod +x /usr/local/src/scripts/* \
-  && chown -R rstudio:rstudio /usr/local/src/scripts
+# Fedora packages
+RUN dnf upgrade -y \
+  && dnf install -y \
+     R-devel \
+     R-devtools \
+     R-flexiblas \
+     gcc-c++ \
+     gcc-gfortran \
+     git-lfs \
+     rstudio-server \
+     vim
